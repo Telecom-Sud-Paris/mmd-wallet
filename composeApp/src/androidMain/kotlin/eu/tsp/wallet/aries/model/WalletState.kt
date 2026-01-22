@@ -1,5 +1,7 @@
 // WalletState.kt
-package eu.tsp.wallet.aries
+package eu.tsp.wallet.aries.model
+
+import eu.tsp.wallet.aries.Invitation
 
 sealed class WalletState {
     object Initializing : WalletState()

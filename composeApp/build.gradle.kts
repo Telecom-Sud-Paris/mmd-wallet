@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    kotlin("plugin.serialization") version "2.1.0"
 }
 
 kotlin {
@@ -50,6 +51,10 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+        // Extract native libraries to support 16 KB page size devices
+        jniLibs {
+            useLegacyPackaging = true
+        }
     }
     buildTypes {
         getByName("release") {
@@ -68,6 +73,13 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.recyclerview)
     implementation("io.coil-kt:coil-compose:2.7.0")
+    implementation("org.apache.commons:commons-lang3:3.17.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.2")
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+    implementation("com.google.zxing:core:3.5.3")
+    // OpenID4VCI dependencies
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     debugImplementation(compose.uiTooling)
 }
 

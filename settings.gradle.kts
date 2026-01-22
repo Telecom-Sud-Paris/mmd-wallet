@@ -29,7 +29,7 @@ dependencyResolutionManagement {
         }
         mavenCentral()
         maven {
-            url = uri("https://maven.pkg.github.com/hyperledger/aries-framework-kotlin")
+            url = uri("https://maven.pkg.github.com/LF-Decentralized-Trust-labs/aries-framework-kotlin")
             credentials {
                 username = personalUser
                 password = personalPassword
